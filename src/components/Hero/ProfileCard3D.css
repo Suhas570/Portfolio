@@ -1,0 +1,173 @@
+.profile-3d-wrapper {
+  perspective: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.profile-3d-card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(13, 20, 38, 0.9) 0%, rgba(8, 13, 28, 0.8) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.8),
+    0 0 35px rgba(59, 130, 246, 0.15),
+    inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  transform-style: preserve-3d;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  overflow: hidden;
+  padding: 12px;
+}
+
+.profile-3d-card:hover {
+  border-color: var(--border-active);
+  box-shadow: 
+    0 30px 60px -15px rgba(0, 0, 0, 0.9),
+    0 0 45px rgba(59, 130, 246, 0.25),
+    0 0 20px rgba(139, 92, 246, 0.2),
+    inset 0 1px 2px rgba(255, 255, 255, 0.2);
+}
+
+.profile-img-container {
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  transform-style: preserve-3d;
+  background: var(--bg-surface);
+}
+
+.profile-real-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+  border-radius: 16px;
+  transition: transform 0.4s ease;
+  transform: translateZ(20px);
+}
+
+/* Dynamic Glass Glare Overlay */
+.profile-glare-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  background: linear-gradient(
+    115deg,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0.03) 40%,
+    transparent 80%
+  );
+  pointer-events: none;
+  z-index: 5;
+  transform: translateZ(40px);
+  mix-blend-mode: overlay;
+  transition: opacity 0.3s ease;
+}
+
+/* Metallic Rim Accent Frame */
+.profile-rim-accent {
+  position: absolute;
+  inset: 12px;
+  border-radius: 16px;
+  border: 1px solid rgba(59, 130, 246, 0.35);
+  pointer-events: none;
+  z-index: 4;
+  transform: translateZ(30px);
+  box-shadow: inset 0 0 15px rgba(139, 92, 246, 0.2);
+}
+
+/* Floating 3D Badges (Futuristic Dark Palette) */
+.profile-badge-float-1 {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  background: rgba(8, 13, 28, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(59, 130, 246, 0.35);
+  color: var(--accent-cyan);
+  padding: 0.5rem 0.95rem;
+  border-radius: var(--radius-full);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6), 0 0 15px rgba(59, 130, 246, 0.2);
+  z-index: 10;
+  transform: translateZ(60px);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.profile-badge-float-2 {
+  position: absolute;
+  bottom: 20px;
+  left: -20px;
+  background: rgba(8, 13, 28, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  color: var(--text-primary);
+  padding: 0.55rem 1rem;
+  border-radius: var(--radius-md);
+  font-size: 0.82rem;
+  font-weight: 600;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+  z-index: 10;
+  transform: translateZ(50px);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.profile-badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--accent-blue);
+  box-shadow: 0 0 8px var(--accent-blue);
+}
+
+/* Ambient 3D Glow Backing */
+.profile-ambient-glow {
+  position: absolute;
+  inset: -20px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.25) 0%, rgba(139, 92, 246, 0.15) 50%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(35px);
+  z-index: -1;
+  opacity: 0.75;
+  transition: opacity 0.4s ease;
+}
+
+@media (max-width: 991px) {
+  .profile-3d-wrapper {
+    max-width: 320px;
+    margin: 1.5rem auto;
+  }
+  
+  .profile-badge-float-1 {
+    right: -5px;
+    top: -10px;
+  }
+  
+  .profile-badge-float-2 {
+    left: -5px;
+    bottom: 10px;
+  }
+}
